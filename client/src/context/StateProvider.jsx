@@ -1,11 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { StateContext } from './StateContext';
-
-// import News api
-import { fetchNews } from '../api/api';
-
-// import product data json
-import Products from '../data/products.json';
 
 // import toast tools
 import { toast } from 'react-toastify';
@@ -22,24 +16,42 @@ export const StateProvider = ({ children }) => {
 	//! State to control the Mobile menu
 	const [isOpen, setIsOpen] = useState(false);
 
-	//! State to control the news api
-	/* const [news, setNews] = useState([]);
+	//! State to control the products data json
+	const [productsData, setProductsData] = useState(null);
+	const [allProducts, setAllProducts] = useState([]);
+
 	useEffect(() => {
-		const fetchData = async () => {
+		const fetchProducts = async () => {
 			try {
-				const data = await fetchNews();
-				setNews(data);
-				console.log(news);
-			} catch (error) {
-				console.log(error);
+				const baseUrl = 'https://ecommerce-project-technexus-api.onrender.com';
+
+				const [computersRes, laptopsRes, smartphonesRes, accessoriesRes, componentsRes] = await Promise.all([
+					fetch(`${baseUrl}/computers`),
+					fetch(`${baseUrl}/laptops`),
+					fetch(`${baseUrl}/smartphones`),
+					fetch(`${baseUrl}/accessories`),
+					fetch(`${baseUrl}/components`),
+				]);
+
+				const [computers, laptops, smartphones, accessories, components] = await Promise.all([
+					computersRes.json(),
+					laptopsRes.json(),
+					smartphonesRes.json(),
+					accessoriesRes.json(),
+					componentsRes.json(),
+				]);
+
+				const data = { computers, laptops, smartphones, accessories, components };
+
+				setProductsData(data);
+				setAllProducts([...computers, ...laptops, ...smartphones, ...accessories, ...components]);
+			} catch (err) {
+				console.error('Failed to fetch products:', err);
 			}
 		};
-		fetchData();
-	}, []); */
 
-	//! State to control the products data json
-	const [productsData, setProductsData] = useState(Products);
-	const [allProducts, setAllProducts] = useState([...productsData.computers, ...productsData.laptops, ...productsData.smartphones, ...productsData.accessories, ...productsData.components]);
+		fetchProducts();
+	}, []);
 
 	//! State to control the sidebar on the product list page
 	const [sidebarActive, setSidebarActive] = useState(false);

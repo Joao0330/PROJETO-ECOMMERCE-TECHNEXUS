@@ -29,11 +29,11 @@ const ProductEditor = () => {
 		const fetchProducts = async () => {
 			try {
 				const endpoints = [
-					'http://localhost:5000/computers',
-					'http://localhost:5000/laptops',
-					'http://localhost:5000/smartphones',
-					'http://localhost:5000/accessories',
-					'http://localhost:5000/components',
+					'https://ecommerce-project-technexus-api.onrender.com/computers',
+					'https://ecommerce-project-technexus-api.onrender.com/laptops',
+					'https://ecommerce-project-technexus-api.onrender.com/smartphones',
+					'https://ecommerce-project-technexus-api.onrender.com/accessories',
+					'https://ecommerce-project-technexus-api.onrender.com/components',
 				];
 
 				const responses = await Promise.all(endpoints.map(endpoint => fetch(endpoint)));

@@ -28,7 +28,7 @@ const DeleteProduct = () => {
 			return;
 		}
 
-		const deleteUrl = `http://localhost:5000/${product.category}/${id}`;
+		const deleteUrl = `https://ecommerce-project-technexus-api.onrender.com/${product.category}/${id}`;
 
 		try {
 			const response = await fetch(deleteUrl, {

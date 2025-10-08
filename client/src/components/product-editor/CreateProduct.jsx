@@ -69,7 +69,7 @@ const CreateProduct = () => {
 			specs: createSpecs(category, subCategory, specs),
 		};
 		try {
-			const response = await fetch(`http://localhost:5000/${category}`, {
+			const response = await fetch(`https://ecommerce-project-technexus-api.onrender.com/${category}`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

@@ -1,16 +1,18 @@
-// import products json
-import productsData from '../../data/products.json';
-
 // import components
+import { useMemo } from 'react';
 import ProductCard from '../../components/ProductCard';
+import { useStates } from '../../context/useStates';
 
 const Featured = () => {
 	// Puts all products in an array
-	const allProducts = [...productsData.computers, ...productsData.laptops, ...productsData.smartphones, ...productsData.accessories, ...productsData.components];
+	const { allProducts } = useStates();
 
 	// Selects 8 random products
-	const featuredProducts = allProducts.sort(() => Math.random() - 0.5).slice(0, 8);
-	console.log(featuredProducts);
+	const featuredProducts = useMemo(() => {
+		if (!allProducts || allProducts.length === 0) return [];
+		// copy before sort to avoid mutation
+		return [...allProducts].sort(() => Math.random() - 0.5).slice(0, 8);
+	}, [allProducts]);
 
 	return (
 		<section className='featured'>

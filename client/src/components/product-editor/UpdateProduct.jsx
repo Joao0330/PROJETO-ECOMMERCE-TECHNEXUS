@@ -104,7 +104,7 @@ const UpdateProduct = () => {
 		};
 		try {
 			// Remove the product from its original category array
-			await fetch(`http://localhost:5000/${product.category}/${id}`, {
+			await fetch(`https://ecommerce-project-technexus-api.onrender.com/${product.category}/${id}`, {
 				method: 'DELETE',
 				headers: {
 					'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ const UpdateProduct = () => {
 			});
 
 			// Add the updated product to the new category array
-			const response = await fetch(`http://localhost:5000/${category}`, {
+			const response = await fetch(`https://ecommerce-project-technexus-api.onrender.com/${category}`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
