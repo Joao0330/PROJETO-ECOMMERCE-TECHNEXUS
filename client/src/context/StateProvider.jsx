@@ -292,7 +292,6 @@ export const StateProvider = ({ children }) => {
 	const value = {
 		toggler,
 		isOpen,
-		/* news, */
 		allProducts,
 		sidebarActive,
 		currentPage,

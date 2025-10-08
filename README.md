@@ -17,7 +17,6 @@ Algumas outras features extra que este projeto possui são:
 
 - Um editor produtos que permite ao utilizador adicionar, editar, e apagar produtos da loja
 - Uma pequena galeria de imagens
-- Uma secção de notícias sobre tecnologia
 - Um formulário dummy de contacto que possui uma validação simples
 
 ## Tecnologias usadas
@@ -32,27 +31,28 @@ Este e-commerce foi feito com as seguintes tecnologias:
 - react Icons - Utilização de ícones
 - fslightbox React - Biblioteca utilizada para a construção da galeria lightbox
 - react hook forms e YUP - Na validação do formulário de contacto
-- Newsapi - API usada para obter as noticias
 - Local storage para armazenar os produtos do carrinho de compras e da wishlist
 
 ## Como correr o programa
 
 Primeiramente, para poder visualizar o site é necessário possuir o nodeJS instalado no computador.
-Após isso, o primeiro comando a ser utilizado será
+Após isso, teremos que instalar as dependências no cliente e no server.
+O primeiro comando a ser utilizado será
 
-` npm install ` ou `npm i`
+`cd client` e de seguida `npm install`
 
-Este comando irá instalar todas as dependencias necessárias listadas no ficheiro package.json para o site funcionar.
+Este comando irá instalar todas as dependencias necessárias listadas no ficheiro package.json para a aplicação cliente funcionar.
 
-Depois, basta apenas correr o seguinte código para poder visualizar o site no browser:
+A seguir, basta fazer a mesma coisa para o server.
+
+Após isto, para correr a aplicação cliente verifique se está no path correto e corra o comando:
 
 `npm run dev`
 
-Para abrir o site no browser basta ir para o endereço ` http://localhost:5173/ `
-
+Para abrir o site no browser basta ir para o endereço `http://localhost:5173/`
 
 Para poder aceder ao editor de produtos é necessário abrir um segundo terminal e escrever o seguinte comando:
 
-`npm run server`
+`cd server` e `npm run start`
 
 Assim, com os dois terminais é possivel aceder ao editor de produtos.
